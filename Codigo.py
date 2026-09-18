@@ -1,15 +1,4 @@
-"""Paint, para dibujar figuras."""
 
-from turtle import *
-import turtle
-
-from freegames import vector
-
-
-def line(start, end):
-    """Dibuja una línea entre dos puntos."""
-    up()
-    goto(start.x, start.y)
     down()
     goto(end.x, end.y)
 
