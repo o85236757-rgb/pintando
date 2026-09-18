@@ -1,4 +1,15 @@
+"""Paint, para dibujar figuras."""
 
+from turtle import *
+import turtle
+
+from freegames import vector
+
+
+def line(start, end):
+    """Dibuja una línea entre dos puntos."""
+    up()
+    goto(start.x, start.y)
     down()
     goto(end.x, end.y)
 
@@ -32,13 +43,35 @@ def circle(start, end):
 
 
 def rectangle(start, end):
-    """Pendiente: dibujar un rectángulo."""
-    pass
+    """Dibuja un rectángulo entre dos esquinas opuestas."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    goto(end.x, start.y)
+    goto(end.x, end.y)
+    goto(start.x, end.y)
+    goto(start.x, start.y)
+
+    end_fill()
 
 
 def triangle(start, end):
-    """Pendiente: dibujar un triángulo."""
-    pass
+    """Dibuja un triángulo equilátero usando los clics como un lado."""
+    side = abs(end - start)
+
+    up()
+    goto(start.x, start.y)
+    setheading(towards(end.x, end.y))
+    down()
+    begin_fill()
+
+    for count in range(3):
+        forward(side)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):
